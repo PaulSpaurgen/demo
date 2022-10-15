@@ -33,7 +33,7 @@ function Cards(props) {
       .then(function (response) {
         data = response.data.data.flashcards;
         setData(data);
-        // setIsloading(false)
+        setIsloading(false)
       })
       .catch(function (error) {
         console.log(error);
@@ -72,7 +72,7 @@ function Cards(props) {
       </Box>
       <chakra.div
         w="100%"
-        h={`${100 - 20}vh`}
+        h={`${100 - 15}vh`}
         display="flex"
         justifyContent="space-around"
         flexDirection="column"
@@ -86,7 +86,7 @@ function Cards(props) {
           <Box
             id="card-container"
             h="479px"
-            w="100%"
+            w="1072px"
             bg="transparent"
             color="white"
             fontWeight="700"
@@ -105,7 +105,7 @@ function Cards(props) {
                 <div>
                   <Box
                     h="479px"
-                    w="800px"
+                    w="1072px"
                     bg="#E76F00"
                     color="white"
                     fontWeight="700"
@@ -133,6 +133,7 @@ function Cards(props) {
                     borderRadius="16px"
                     fontSize="40px"
                     border="none"
+                    padding="40px"
                   >
                     {data.length > 0 ? data[flashCardCount - 1].answer : ""}
                   </Box>
@@ -143,13 +144,13 @@ function Cards(props) {
         )}
 
         <Box
-          w="100%"
+          w="1072px"
           display="flex"
           justifyContent="center"
           align-items="center"
         >
           <Flex
-            w="80%"
+            w="1072px"
             display="flex"
             align-items="center"
             justifyContent="space-between"

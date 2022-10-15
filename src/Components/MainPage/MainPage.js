@@ -72,6 +72,8 @@ function MainPage() {
       setSearchResult([]);
       setShowResult(true);
       setIsSearched(true);
+      setSearchBox(false);
+      setShowCards(false);
     }
   };
   const setInputSearch = (val) => {
@@ -79,15 +81,19 @@ function MainPage() {
     setSearchBox(false);
     setSelectedContent(val);
     setInput(val.topic);
+    setSearchResult([]);
+    setShowResult(true);
+    setIsSearched(true);
+    setShowCards(false);
   };
   return (
     <chakra.div bg="#11131E" w="100%" h="100vh">
       <Flex
         w="100%"
         h="104px"
-        // alignItems="center"
         justifyContent="center"
         borderBottom="2px solid #262D3A"
+        
       >
         <InputGroup
           mt="24px"
@@ -98,6 +104,8 @@ function MainPage() {
           transition="transform 250ms"
           display="flex"
           flexDirection="column"
+          position="relative"
+          zIndex={10}
         >
           <InputLeftElement
             pointerEvents="none"
@@ -121,7 +129,6 @@ function MainPage() {
             border="none"
             value={input}
             focusBorderColor="none"
-            onKeyDown={(e) => handleSearch(e)}
             onChange={(e) => {
               setInput(e.target.value);
             }}
@@ -135,6 +142,8 @@ function MainPage() {
               width="100%"
               padding="26px"
               paddingTop={0}
+              position="relative"
+              zIndex="10px"
             >
               <Tag
                 bg="#262D3A"
